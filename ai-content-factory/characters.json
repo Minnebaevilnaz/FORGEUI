@@ -1,0 +1,12 @@
+{
+  "olivia": {
+    "lora": "olivia.safetensors",
+    "weight": 1.1,
+    "trigger": "OLIVIA_STYLE"
+  },
+  "jasmine": {
+    "lora": "jasmine.safetensors",
+    "weight": 1.0,
+    "trigger": "JASMINE_STYLE"
+  }
+}

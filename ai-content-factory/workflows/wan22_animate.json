@@ -1,0 +1,82 @@
+{
+  "1": {
+    "class_type": "CheckpointLoaderSimple",
+    "inputs": {
+      "ckpt_name": "wan2.2_animate.safetensors"
+    }
+  },
+  "2": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": ""
+    }
+  },
+  "3": {
+    "class_type": "VHS_LoadVideo",
+    "inputs": {
+      "video": ""
+    }
+  },
+  "4": {
+    "class_type": "LoraLoader",
+    "inputs": {
+      "model": [
+        "1",
+        0
+      ],
+      "clip": [
+        "1",
+        1
+      ],
+      "lora_name": "",
+      "strength_model": 1.0,
+      "strength_clip": 1.0
+    }
+  },
+  "5": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "",
+      "clip": [
+        "4",
+        1
+      ]
+    }
+  },
+  "6": {
+    "class_type": "WanAnimate",
+    "inputs": {
+      "model": [
+        "4",
+        0
+      ],
+      "image": [
+        "2",
+        0
+      ],
+      "video": [
+        "3",
+        0
+      ],
+      "prompt": [
+        "5",
+        0
+      ],
+      "steps": 24,
+      "cfg": 5.0,
+      "seed": 1
+    }
+  },
+  "7": {
+    "class_type": "VHS_VideoCombine",
+    "inputs": {
+      "images": [
+        "6",
+        0
+      ],
+      "frame_rate": 24,
+      "filename_prefix": "telegram_video",
+      "format": "video/h264-mp4"
+    }
+  }
+}
